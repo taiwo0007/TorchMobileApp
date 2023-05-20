@@ -17,6 +17,14 @@ This readme provides an overview of the app's features and includes placeholders
 - Track active rentals and trip history
 - Integration with React Native Maps for displaying scooter locations
 
+
+
+## App Demo
+![Image 1](./demo.gif)
+
+
+
+
 ## Screenshots
 
 <!-- Replace the placeholders with actual screenshots of your app -->
@@ -35,6 +43,4 @@ This readme provides an overview of the app's features and includes placeholders
 ![Image 13](./screenshots/13.png)
 
 
-## App Demo
-![Image 1](./demo.gif)
 
