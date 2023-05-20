@@ -19,7 +19,7 @@ This readme provides an overview of the app's features and includes placeholders
 
 
 
-## App Demo
+## App Video Demo
 ![Image 1](./demo.gif)
 
 
