@@ -5,7 +5,7 @@ import Subtitle from "../UI/Subtitle";
 import StyledText from "../UI/StyledText";
 import NormalButton from "../UI/CustomButton";
 import CustomButton from "../UI/CustomButton";
-import LoginPlaceHolder from "../components/screens/LoginPlaceHolder";
+import LoginPlaceHolder from '../UI/LoginPlaceHolder';
 import { useNavigation } from "@react-navigation/native";
 
 export default function FavoritesScreen() {

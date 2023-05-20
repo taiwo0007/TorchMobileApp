@@ -11,40 +11,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useStripe } from "@stripe/stripe-react-native";
 import CustomButton from "../UI/RoundedButton";
 import { SafeAreaView } from "react-native";
-import * as Haptics from 'expo-haptics';
+import * as Haptics from "expo-haptics";
 
 export default function BookTripScreen({ route, navigation }) {
   const [escooter, setEscooter] = useState({});
   const [hostInsurance, setHostInsurance] = useState(null);
   const authState = useSelector((state) => state.auth);
-
-  const customAppearance = {
-    font: {
-      family:
-        Platform.OS === 'android' ? 'avenirnextregular' : 'AvenirNext-Regular',
-    },
-    shapes: {
-      borderRadius: 12,
-      borderWidth: 0.5,
-    },
-    primaryButton: {
-      shapes: {
-       borderRadius: 20,
-      },
-    },
-    colors: {
-      primary: 'black',
-      background: 'black',
-      componentBackground: '#f3f8fa',
-      componentBorder: '#f3f8fa',
-      componentDivider: '#000000',
-      primaryText: '#000000',
-      secondaryText: '#000000',
-      componentText: '#000000',
-      placeholderText: '#73757b',
-    },
-   };
-
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
   const [loading, setLoading] = useState(false);
 
@@ -57,7 +29,6 @@ export default function BookTripScreen({ route, navigation }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(responseb), // stringify the costObject and send it in the request body
-
     });
     const { paymentIntent, ephemeralKey, customer } = await response.json();
 
@@ -70,10 +41,7 @@ export default function BookTripScreen({ route, navigation }) {
 
   const initializePaymentSheet = async () => {
     const { paymentIntent, ephemeralKey, customer, publishableKey } =
-      await fetchPaymentSheetParams({
-       
-
-      });
+      await fetchPaymentSheetParams({});
 
     const { error } = await initPaymentSheet({
       merchantDisplayName: "Torch, Inc.",
@@ -87,31 +55,31 @@ export default function BookTripScreen({ route, navigation }) {
         name: "Jane Doe",
       },
       appearance: {
-      shapes: {
-        borderRadius: 12,
-        borderWidth: 0.5,
-      },
-      primaryButton: {
         shapes: {
-         borderRadius: 10,
-         color: "#000000"
+          borderRadius: 12,
+          borderWidth: 0.5,
+        },
+        primaryButton: {
+          shapes: {
+            borderRadius: 10,
+            color: "#000000",
+          },
+        },
+        colors: {
+          primary: "#000000",
+          background: "#ffffff",
+          componentBackground: "#f3f8fa",
+          componentBorder: "#f3f8fa",
+          componentDivider: "#000000",
+          primaryText: "#000000",
+          secondaryText: "#000000",
+          componentText: "#000000",
+          placeholderText: "#73757b",
         },
       },
-      colors: {
-        primary: '#000000',
-        background: '#ffffff',
-        componentBackground: '#f3f8fa',
-        componentBorder: '#f3f8fa',
-        componentDivider: '#000000',
-        primaryText: '#000000',
-        secondaryText: '#000000',
-        componentText: '#000000',
-        placeholderText: '#73757b',
-      },}
     });
     if (!error) {
       setLoading(true);
-      
     }
   };
 
@@ -122,12 +90,23 @@ export default function BookTripScreen({ route, navigation }) {
       console.log(`Error code: ${error.code}`, error.message);
     } else {
       console.log("Success", "Your order is confirmed!");
-      Haptics.notificationAsync(
-        Haptics.NotificationFeedbackType.Success
-      )
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+
       navigation.reset({
         index: 0,
-        routes: [{ name: 'TripDetailScreen' }], // replace 'ConfirmationScreen' with the name of your actual confirmation screen
+        routes: [
+          {
+            name: "TripDetailScreen",
+            params: {
+              // Add your parameters here
+              escooter: escooter,
+              host: route.params?.host,
+              new: true,
+              tripId: 3
+              // ...
+            },
+          },
+        ], // replace 'ConfirmationScreen' with the name of your actual confirmation screen
       });
     }
   };
@@ -240,15 +219,14 @@ export default function BookTripScreen({ route, navigation }) {
         </View>
       </ScrollView>
       <SafeAreaView className="mx-4 mt-3">
-          <CustomButton
-          style={{borderRadius:90}}
-            disabled={!loading}
-            onPress={openPaymentSheet}
-            color="black"
-          >
-            Pay
-          </CustomButton>
-      
+        <CustomButton
+          style={{ borderRadius: 90 }}
+          disabled={!loading}
+          onPress={openPaymentSheet}
+          color="black"
+        >
+          Pay
+        </CustomButton>
       </SafeAreaView>
     </>
   );

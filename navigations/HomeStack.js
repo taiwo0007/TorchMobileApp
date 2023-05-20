@@ -38,7 +38,7 @@ export default function HomeStack() {
         name="TripDetailScreen"
         component={TripDetailScreen}
         options={{
-         
+          title: "Your trip"
         }}
       />
       <Stack.Screen
@@ -89,7 +89,7 @@ export default function HomeStack() {
         options={({ navigation }) => ({
           title: "Payment",
           headerTitleStyle: {
-              fontWeight: "700"
+            fontWeight: "700",
           },
           headerLeft: () => (
             <Icon
@@ -101,7 +101,7 @@ export default function HomeStack() {
           ),
         })}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="MapScreen"
         component={MapScreen}
         options={({ navigation }) => ({

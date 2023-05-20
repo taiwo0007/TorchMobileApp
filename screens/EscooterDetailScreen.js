@@ -44,7 +44,7 @@ export default function EscooterDetailScreen({ navigation, route }) {
   const isFocused = useIsFocused();
 
   const mapNavigationHandler = () => {
-    console.log("in the map")
+    console.log("in the map");
     navigation.navigate("MapScreen", {
       escooterList: [scooterData],
     });
@@ -70,7 +70,7 @@ export default function EscooterDetailScreen({ navigation, route }) {
   );
 
   const onMakeTripBooking = () => {
-    if (authState.isAuthenticated && !authState.user.isVerified) {
+    if ( !authState.user.isVerified) {
       navigation.navigate("VerifyPromptScreen");
       return;
     }
@@ -78,6 +78,7 @@ export default function EscooterDetailScreen({ navigation, route }) {
     navigation.navigate("BookTripScreen", {
       escooter: scooterData,
       host: hostData,
+      tripId: 4
     });
   };
 
@@ -227,56 +228,6 @@ export default function EscooterDetailScreen({ navigation, route }) {
           </View>
         )}
 
-        {/* Trip start and End */}
-
-        {/* {!loading && (
-          <View className="mx-4 mt-4 border-slate-200 border-b pb-4">
-            <Text
-              style={{ fontFamily: "gros-bold" }}
-              className="text-lg font-bold"
-            >
-              Trip Start & End
-            </Text>
-            <View className="mt-2 flex-row items-center border p-3 rounded-lg border-slate-500">
-              <View className="mr-3">
-                <Icon name="md-calendar-outline" size={24} color="black" />
-              </View>
-
-              <DatePicker
-                style={{
-                  width: 350,
-                  height: 35,
-                  borderRadius: 20,
-                  borderWidth: 0,
-                  borderColor: "transparent",
-                }}
-                customStyles={{
-                  placeholderText: {
-                    fontSize: 15,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    marginRight: "auto",
-                  },
-                  headerStyle: {
-                    backgroundColor: "#003580",
-                  },
-                  contentText: {
-                    fontSize: 15,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    marginRight: "auto",
-                  },
-                }}
-                customButton={(onConfirm) => customButton(onConfirm)}
-                selectedBgColor="#0047AB"
-                centerAlign // optional text will align center or not
-                allowFontScaling={false} // optional
-                placeholder={"Select your Dates"}
-                mode={"range"}
-              />
-            </View>
-          </View>
-        )} */}
         {!loading && (
           <View className="px-4 pb-5 mt-4">
             <Text
@@ -324,7 +275,7 @@ export default function EscooterDetailScreen({ navigation, route }) {
         )}
 
         {!loading && (
-          <View className="mx-4 border-b border-slate-200 pt-4 border-slate-200 border-t">
+          <View className="mx-4 border-b border-slate-200 pt-4  border-t">
             <Text
               style={{ fontFamily: "gros-bold" }}
               className="text-lg mb-3 font-bold"

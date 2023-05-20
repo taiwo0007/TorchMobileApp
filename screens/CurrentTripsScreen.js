@@ -10,7 +10,7 @@ import { useIsFocused } from "@react-navigation/native";
 import TripCard from "../UI/TripCard";
 import Loader from "../components/shared/Loader";
 
-export default function CurrentTripScreen({ navigation }) {
+export default function CurrentTripScreen({ navigation, route }) {
   const navigaton = useNavigation();
   function onLoginHandler() {
     navigaton.navigate("LogInScreen");
@@ -68,7 +68,7 @@ export default function CurrentTripScreen({ navigation }) {
   return (
     <SafeAreaView>
       {trips?.map((trip) => {
-        return <TripCard trip={trip} />;
+        return <TripCard route={route} navigation={navigation} trip={trip} />;
       })}
     </SafeAreaView>
   );

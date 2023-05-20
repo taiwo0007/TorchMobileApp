@@ -41,7 +41,7 @@ export default function TabNavigator() {
           title: "hello world",
           tabBarIcon: ({ focused }) =>
             focused ? (
-              <Ionicons name="md-home-outline" size={24} color="blue" />
+              <Ionicons name="md-home" size={24} color="blue" />
             ) : (
               <Ionicons name="md-home-outline" size={24} color="black" />
             ),
@@ -57,7 +57,7 @@ export default function TabNavigator() {
           headerShown: false,
           tabBarIcon: ({ focused }) =>
             focused ? (
-              <Ionicons name="heart-outline" size={24} color="blue" />
+              <Ionicons name="heart" size={24} color="blue" />
             ) : (
               <Ionicons name="heart-outline" size={24} color="black" />
             ),
@@ -115,7 +115,7 @@ export default function TabNavigator() {
           tabBarIcon: ({ focused }) =>
             focused ? (
               <Ionicons
-                name="md-notifications-outline"
+                name="md-notifications"
                 size={24}
                 color="blue"
               />

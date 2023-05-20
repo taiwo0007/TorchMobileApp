@@ -1,34 +1,39 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
 import Icon from "./Icon";
 
-export default function TripCard({ trip }) {
-  
+export default function TripCard({ trip, route, navigation }) {
   return (
-    <View
-      className="flex-row border my-2 border-slate-200 items-center"
-      style={styles.card}
+    <Pressable
+      onPress={() => {
+        navigation.navigate("TripDetailScreen", { tripId: trip?.id });
+      }}
     >
-      <Image
-      className="m-4 rounded-md"
-        style={{ width: 110, height: 110 }}
-        source={{
-          uri: trip?.eScooterOnTrip?.image,
-        }}
-      />
-      <View className="p-2 ml-1 flex-1 ">
-        <Text className="font-semibold text-slate-500  text-md ">Trip #{trip?.tripId}</Text>
-        <View className="flex-row my-2">
-          <Text  className="font-bold text-lg  mr-2">
-        {trip?.eScooterOnTrip.modelName}
+      <View
+        className="flex-row border my-2 border-slate-200 items-center"
+        style={styles.card}
+      >
+        <Image
+          className="m-4 rounded-md"
+          style={{ width: 110, height: 110 }}
+          source={{
+            uri: trip?.eScooterOnTrip?.image,
+          }}
+        />
+        <View className="p-2 ml-1 flex-1 ">
+          <Text className="font-semibold text-slate-500  text-md ">
+            Trip #{trip?.tripId}
           </Text>
+          <View className="flex-row my-2">
+            <Text className="font-bold text-lg  mr-2">
+              {trip?.eScooterOnTrip.modelName}
+            </Text>
+          </View>
+          <Text className="  ">Jul 4 - Jul 6</Text>
         </View>
-        <Text className="  ">Jul 4 - Jul 6</Text>
+        <View className="justify-end "></View>
       </View>
-      <View className="justify-end ">
-       
-      </View>
-    </View>
+    </Pressable>
   );
 }
 

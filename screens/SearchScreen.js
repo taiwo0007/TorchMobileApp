@@ -37,20 +37,12 @@ export default function SearchScreen({ navigation }) {
 
   const scooters = [
     {
-      key: 5,
+      key: 4,
       modelName: "Xiamoi Evolution 23 Max",
-      image: "https://storage.googleapis.com/torch-gcp-bucket/escooter12.png",
-      cost: 25.99,
-      trips: 78,
-      rating: 5,
-    },
-    {
-      key: 6,
-      modelName: "Xiamoi Evolution 23 Max",
-      image: "https://storage.googleapis.com/torch-gcp-bucket/escooter13.png",
-      cost: 31.99,
-      trips: 91,
-      rating: 4.32,
+      image: "https://storage.googleapis.com/torch-gcp-bucket/escooter11.png",
+      cost: 253,
+      trips: 3,
+      rating: 2.02,
     },
     {
       key: 3,
@@ -61,6 +53,24 @@ export default function SearchScreen({ navigation }) {
       rating: 2.02,
     },
     {
+      key: 5,
+      modelName: "Xiamoi Evolution 23 Max",
+      image: "https://storage.googleapis.com/torch-gcp-bucket/escooter12.png",
+      cost: 25.99,
+      trips: 78,
+      rating: 5,
+    },
+
+    {
+      key: 6,
+      modelName: "Xiamoi Evolution 23 Max",
+      image: "https://storage.googleapis.com/torch-gcp-bucket/escooter13.png",
+      cost: 31.99,
+      trips: 91,
+      rating: 4.32,
+    },
+   
+    {
       key: 2,
       modelName: "Xiamoi Evolution 23 Max",
       image: "https://storage.googleapis.com/torch-gcp-bucket/escooter10.png",
@@ -68,14 +78,7 @@ export default function SearchScreen({ navigation }) {
       trips: 3,
       rating: 4.02,
     },
-    {
-      key: 4,
-      modelName: "Xiamoi Evolution 23 Max",
-      image: "https://storage.googleapis.com/torch-gcp-bucket/escooter11.png",
-      cost: 253,
-      trips: 3,
-      rating: 2.02,
-    },
+    
   ];
   useLayoutEffect(() => {
     navigation.setOptions({

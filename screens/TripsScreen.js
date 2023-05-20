@@ -1,7 +1,9 @@
 import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
-import LoginPlaceHolder from '../components/screens/LoginPlaceHolder'
+
+
 import { useNavigation } from '@react-navigation/native';
+import LoginPlaceHolder from '../UI/LoginPlaceHolder';
 
 export default function TripsScreen() {
   const navigaton = useNavigation();

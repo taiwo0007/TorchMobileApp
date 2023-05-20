@@ -24,7 +24,7 @@ import { createAvatar } from "@dicebear/core";
 import { lorelei, micah } from "@dicebear/collection";
 import InfoCard from "../UI/InfoCard";
 import ContainerButton from "../UI/ContainerButton";
-import LoginPlaceHolder from "../components/screens/LoginPlaceHolder";
+import LoginPlaceHolder from '../UI/LoginPlaceHolder';
 import InfoCardDark from "../UI/InfoCardDark";
 
 export default function ProfileScreen({ navigation }) {

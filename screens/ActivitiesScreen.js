@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
-import LoginPlaceHolder from "../components/screens/LoginPlaceHolder";
+import LoginPlaceHolder from '../UI/LoginPlaceHolder';
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 
